@@ -1,9 +1,9 @@
 module.exports = grammar({
   name: "move",
 
-  extras: ($) => [$.comment, /\s/],
+  // extras: ($) => [$.comment, /\s/],
 
-  conflicts: ($) => [[$._definition, $.function_definition], [$.module_path]],
+  // conflicts: ($) => [[$._definition, $.function_definition], [$.module_path]],
 
   rules: {
     source_file: ($) => $.module_definition,

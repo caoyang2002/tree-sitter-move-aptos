@@ -1,5 +1,9 @@
 # tree-sitter 语法参考
 
+```bash
+tree-sitter parse test.move
+```
+
 参考：
 
 https://blog.zeromake.com/pages/tree-sitter-syntax/
@@ -70,9 +74,9 @@ mkdir tree-sitter-calc
 
 cd tree-sitter-calc
 
-# node 绑定需要的，可以不用整
-npm init
-npm install --save nan
+# 这是 node 绑定需要的，可以不用整，可以用 tree-sitter 命令
+# npm init
+# npm install --save nan
 ```
 
 > nan 是一个 Node.js 的原生抽象层，它提供了一个简单的方法来写 Node.js 的 C/C++ 插件。
@@ -81,7 +85,7 @@ npm install --save nan
 
 ```js
 module.exports = grammar({
-  name: 'calc',
+  name: "calc",
   // 跳过空白符号
   extras: () => [/\s/],
   rules: {
@@ -92,13 +96,13 @@ module.exports = grammar({
     // 记得必须要使用 prec.left，或者 prec.right 否则无法生成代码
     binary_expression: ($) =>
       choice(
-        ...[['+'], ['-'], ['*'], ['/']].map(([operator]) =>
+        ...[["+"], ["-"], ["*"], ["/"]].map(([operator]) =>
           prec.left(
             0,
             seq(
-              field('left', $.expression),
-              field('op', operator),
-              field('right', $.expression)
+              field("left", $.expression),
+              field("op", operator),
+              field("right", $.expression)
             )
           )
         )
@@ -106,7 +110,7 @@ module.exports = grammar({
     // 支持下划线的数字
     number: ($) => seq(/\d(_?\d)*/),
   },
-})
+});
 ```
 
 ### 测试 parse 效果
@@ -114,9 +118,9 @@ module.exports = grammar({
 ```bash
 tree-sitter generate
 
-echo '10 - 10 * 10' > calc.txt
+echo '10 - 10 * 10' > test.move
 
-tree-sitter parse calc.txt
+tree-sitter parse test.move
 ```
 
 输出
@@ -138,7 +142,7 @@ tree-sitter parse calc.txt
 
 ```js
 module.exports = grammar({
-  name: 'calc',
+  name: "calc",
   // 跳过空白符号
   extras: () => [/\s/],
   rules: {
@@ -151,17 +155,17 @@ module.exports = grammar({
     binary_expression: ($) =>
       choice(
         ...[
-          ['+', 0],
-          ['-', 0],
-          ['*', 1],
-          ['/', 1],
+          ["+", 0],
+          ["-", 0],
+          ["*", 1],
+          ["/", 1],
         ].map(([operator, r]) =>
           prec.left(
             r,
             seq(
-              field('left', $.expression),
-              field('op', operator),
-              field('right', $.expression)
+              field("left", $.expression),
+              field("op", operator),
+              field("right", $.expression)
             )
           )
         )
@@ -169,7 +173,7 @@ module.exports = grammar({
     // 支持下划线的数字
     number: ($) => seq(/\d(_?\d)*/),
   },
-})
+});
 ```
 
 测试
@@ -204,15 +208,15 @@ tree-sitter generate
 ```js
 // , 分割的重复效果 [1,2,3], [1]
 function commaSep1(rule) {
-  return seq(rule, repeat(seq(',', rule)))
+  return seq(rule, repeat(seq(",", rule)));
 }
 
 // , 分割的重复效果，但是不是必须的，可以支持类似 [1,2,3], []
 function commaSep(rule) {
-  return optional(commaSep1(rule))
+  return optional(commaSep1(rule));
 }
 module.exports = grammar({
-  name: 'json',
+  name: "json",
 
   // 跳过注释和空白符号（注释在 json 标准是不支持的，这个应该是 json5 才支持的）
   extras: ($) => [/\s/, $.comment],
@@ -228,18 +232,18 @@ module.exports = grammar({
       choice($.object, $.array, $.number, $.string, $.true, $.false, $.null),
 
     // object {}, {"1": 1}
-    object: ($) => seq('{', commaSep($.pair), '}'),
+    object: ($) => seq("{", commaSep($.pair), "}"),
 
     // "1": 1
     pair: ($) =>
       seq(
-        field('key', choice($.string, $.number)),
-        ':',
-        field('value', $._value)
+        field("key", choice($.string, $.number)),
+        ":",
+        field("value", $._value)
       ),
 
     // array [], [1]
-    array: ($) => seq('[', commaSep($._value), ']'),
+    array: ($) => seq("[", commaSep($._value), "]"),
 
     // 空白的字符串与有内容的字符串
     string: ($) => choice(seq('"', '"'), seq('"', $.string_content, '"')),
@@ -250,54 +254,54 @@ module.exports = grammar({
 
     // 匹配中 \n 之类的转义效果
     escape_sequence: ($) =>
-      token.immediate(seq('\\', /(\"|\\|\/|b|f|n|r|t|u)/)),
+      token.immediate(seq("\\", /(\"|\\|\/|b|f|n|r|t|u)/)),
 
     // 多种数字匹配，这个就不说了，太常见了
     number: ($) => {
-      const hex_literal = seq(choice('0x', '0X'), /[\da-fA-F]+/)
+      const hex_literal = seq(choice("0x", "0X"), /[\da-fA-F]+/);
 
-      const decimal_digits = /\d+/
-      const signed_integer = seq(optional(choice('-', '+')), decimal_digits)
-      const exponent_part = seq(choice('e', 'E'), signed_integer)
+      const decimal_digits = /\d+/;
+      const signed_integer = seq(optional(choice("-", "+")), decimal_digits);
+      const exponent_part = seq(choice("e", "E"), signed_integer);
 
-      const binary_literal = seq(choice('0b', '0B'), /[0-1]+/)
+      const binary_literal = seq(choice("0b", "0B"), /[0-1]+/);
 
-      const octal_literal = seq(choice('0o', '0O'), /[0-7]+/)
+      const octal_literal = seq(choice("0o", "0O"), /[0-7]+/);
 
       const decimal_integer_literal = seq(
-        optional(choice('-', '+')),
-        choice('0', seq(/[1-9]/, optional(decimal_digits)))
-      )
+        optional(choice("-", "+")),
+        choice("0", seq(/[1-9]/, optional(decimal_digits)))
+      );
 
       const decimal_literal = choice(
         seq(
           decimal_integer_literal,
-          '.',
+          ".",
           optional(decimal_digits),
           optional(exponent_part)
         ),
-        seq('.', decimal_digits, optional(exponent_part)),
+        seq(".", decimal_digits, optional(exponent_part)),
         seq(decimal_integer_literal, optional(exponent_part))
-      )
+      );
 
       return token(
         choice(hex_literal, decimal_literal, binary_literal, octal_literal)
-      )
+      );
     },
 
     // 三个常量表达式
-    true: ($) => 'true',
+    true: ($) => "true",
 
-    false: ($) => 'false',
+    false: ($) => "false",
 
-    null: ($) => 'null',
+    null: ($) => "null",
     // json5 的注释支持
     comment: ($) =>
       token(
-        choice(seq('//', /.*/), seq('/*', /[^*]*\*+([^/*][^*]*\*+)*/, '/'))
+        choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))
       ),
   },
-})
+});
 ```
 
 由于 json 里 object, array 并没有直接再次引用自己，所以无需使用 prec 处理重复的情况。
@@ -326,21 +330,21 @@ module.exports = grammar({
 
 **内置函数**
 
-| 名称            | 表达式                     | 示例                                  | 说明                                                         |
-| --------------- | -------------------------- | ------------------------------------- | ------------------------------------------------------------ |
-| seq             | seq(rule1, rule2, …)       | `seq("(", /w+,?/, ")")`               | 使用其他的规则构建一个新的规则，按顺序拼接下去               |
-| choice          | choice(rule1, rule2, …)    | `choice("'", "\"")`                   | 使用其他规则创建一个新规则，顺序无关，类似于正则里 `|` 效果  |
-| repeat          | repeat(rule)               | `repeat(" ")`                         | 重复 0-n 该规则，类似于正则里的 `*` 效果                     |
-| repeat1         | repeat1(rule)              | `repeat1("0x")`                       | 重复 1-n 该规则，类似于正则里的 `+` 效果                     |
-| optional        | optional(rule)             | `optional("0x")`                      | 重复 0-1 该规则，类似于正则里的 `?` 效果                     |
-| prec            | prec(number, rule)         | `prec(1, /\+-\*\\/)`                  | 指定规则优先级。默认优先级为 0。一般用于 choice 有叠加的情况 |
-| prec.left       | prec.left(number, rule)    | `prec.left(1, /\+-\*\\/)`             | 出现相同规则优先级时，优先执行左侧规则。                     |
-| prec.right      | prec.right(number, rule)   | `prec.right(1, /\+-\*\\/)`            | 出现相同规则优先级时，优先执行右侧规则。                     |
-| prec.dynamic    | prec.dynamic(number, rule) | `prec.dynamic(1, /\+-\*\\/)`          | 优先级在动态运行时有效。动态运行处理语法冲突时，才有必要。   |
+| 名称            | 表达式                     | 示例                                  | 说明                                                                                                                                                                                      |
+| --------------- | -------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| seq             | seq(rule1, rule2, …)       | `seq("(", /w+,?/, ")")`               | 使用其他的规则构建一个新的规则，按顺序拼接下去                                                                                                                                            |
+| choice          | choice(rule1, rule2, …)    | `choice("'", "\"")`                   | 使用其他规则创建一个新规则，顺序无关，类似于正则里 `                                                                                                                                      | ` 效果 |
+| repeat          | repeat(rule)               | `repeat(" ")`                         | 重复 0-n 该规则，类似于正则里的 `*` 效果                                                                                                                                                  |
+| repeat1         | repeat1(rule)              | `repeat1("0x")`                       | 重复 1-n 该规则，类似于正则里的 `+` 效果                                                                                                                                                  |
+| optional        | optional(rule)             | `optional("0x")`                      | 重复 0-1 该规则，类似于正则里的 `?` 效果                                                                                                                                                  |
+| prec            | prec(number, rule)         | `prec(1, /\+-\*\\/)`                  | 指定规则优先级。默认优先级为 0。一般用于 choice 有叠加的情况                                                                                                                              |
+| prec.left       | prec.left(number, rule)    | `prec.left(1, /\+-\*\\/)`             | 出现相同规则优先级时，优先执行左侧规则。                                                                                                                                                  |
+| prec.right      | prec.right(number, rule)   | `prec.right(1, /\+-\*\\/)`            | 出现相同规则优先级时，优先执行右侧规则。                                                                                                                                                  |
+| prec.dynamic    | prec.dynamic(number, rule) | `prec.dynamic(1, /\+-\*\\/)`          | 优先级在动态运行时有效。动态运行处理语法冲突时，才有必要。                                                                                                                                |
 | token           | token(rule)                | `token(prec(1, /\+-\*\\/))`           | 将规则输出的内容标记为单个符号。默认是将字符串或正则标记为单独的符号。本函数可以将复杂表达式，标记为单个符号(在 c 里有优化效果，多个字符作为一个分支，否则会每个规则都需要一个分支代码)。 |
-| token.immediate | token.immediate(rule)      | `token.immediate(prec(1, /\+-\*\\/))` | 只有在前面没有空格时，进行符号化。                           |
-| alias           | alias(rule, name)          | `alias($.string, "commit")`           | 语法树中以替代名称出现。                                     |
-| field           | field(name, rule)          | `field("key", choice($.string))`      | 将字段名称分配给规则，解析后可以用该名命中规则匹配。         |
+| token.immediate | token.immediate(rule)      | `token.immediate(prec(1, /\+-\*\\/))` | 只有在前面没有空格时，进行符号化。                                                                                                                                                        |
+| alias           | alias(rule, name)          | `alias($.string, "commit")`           | 语法树中以替代名称出现。                                                                                                                                                                  |
+| field           | field(name, rule)          | `field("key", choice($.string))`      | 将字段名称分配给规则，解析后可以用该名命中规则匹配。                                                                                                                                      |
 
 ## 参考
 

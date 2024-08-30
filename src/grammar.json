@@ -1616,23 +1616,11 @@
   },
   "extras": [
     {
-      "type": "SYMBOL",
-      "name": "comment"
-    },
-    {
       "type": "PATTERN",
       "value": "\\s"
     }
   ],
-  "conflicts": [
-    [
-      "_definition",
-      "function_definition"
-    ],
-    [
-      "module_path"
-    ]
-  ],
+  "conflicts": [],
   "precedences": [],
   "externals": [],
   "inline": [],

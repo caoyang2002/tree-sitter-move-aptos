@@ -1,10 +1,94 @@
-# tree-sitter 语法参考
+# Tree-sitter-move-aptos
+
+测试
 
 ```bash
 tree-sitter parse test.move
 ```
 
-参考：
+
+
+#  Tree-sitter 使用教程
+
+项目地址:https://gitcode.com/gh_mirrors/tr/tree-sitter
+
+> Tree-sitter 是一个解析器生成工具和增量解析库。它能够为源文件构建具体的语法树，并且能够高效地更新语法树，即使在源文件被编辑时也是如此。Tree-sitter 旨在：
+
+- 通用性：能够解析任何编程语言。
+- 快速性：能够在文本编辑器中每次按键时进行解析。
+- 健壮性：即使在存在语法错误的情况下也能提供有用的结果。
+- 无依赖性：运行时库（用纯 C 编写）可以嵌入到任何应用程序中。
+- 项目快速启动
+
+## 安装
+
+首先，你需要安装 Tree-sitter。你可以通过以下命令安装：
+
+```bash
+git clone https://github.com/tree-sitter/tree-sitter.git
+cd tree-sitter
+make
+sudo make install
+```
+
+## 使用示例
+
+以下是一个简单的使用示例，展示如何使用 Tree-sitter 解析一个简单的 C 语言文件：
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+```
+
+
+你可以使用以下命令来解析这个文件：
+
+```bash
+tree-sitter parse example.c
+```
+
+
+## 应用案例
+
+Tree-sitter 广泛应用于各种文本编辑器和 IDE 中，例如：
+
+- Atom 编辑器：使用 Tree-sitter 进行语法高亮和代码折叠。
+
+- Neovim：使用 Tree-sitter 进行语法分析和代码导航。
+
+
+## 最佳实践
+
+- 增量解析：利用 Tree-sitter 的增量解析功能，可以在编辑器中实时更新语法树，提高性能。
+
+- 错误恢复：即使在存在语法错误的情况下，Tree-sitter 也能提供有用的结果，确保编辑器在遇到错误时仍能正常工作。
+
+## 典型生态项目
+
+Tree-sitter 的生态系统包含多个相关的项目，这些项目扩展了 Tree-sitter 的功能：
+
+- py-tree-sitter：Python 绑定，允许在 Python 项目中使用 Tree-sitter。
+- java-tree-sitter：Java 绑定，允许在 Java 项目中使用 Tree-sitter
+- tree-sitter-c：C 语言的语法定义，用于解析 C 代码。
+- tree-sitter-cpp：C++ 语言的语法定义，用于解析 C++ 代码。
+
+这些项目共同构成了一个强大的生态系统，支持多种编程语言和平台。
+
+原文链接：https://blog.csdn.net/gitblog_01056/article/details/141042501
+
+---
+
+
+
+
+
+
+
+# tree-sitter 自定义语法参考
 
 https://blog.zeromake.com/pages/tree-sitter-syntax/
 
@@ -62,6 +146,8 @@ tree-sitter 底层生成的代码是 c，最少需要一个类 gcc 编译器 (ms
 **node 环境**
 
 tree-sitter 的 grammar 用的 js 描述的，需要 node 来解析生成 tree-sitter 使用的 json。
+
+
 
 ## 二、创建 tree-sitter-calc 解析器
 
@@ -319,32 +405,36 @@ module.exports = grammar({
 
 ### 公共字段
 
-| 名称       | 说明                                                                                                                                 |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| extras     | 可能出现在语言中任何地方的符号数组，空格换行之类的字符。                                                                             |
+
+| 名称       | 说明                                                      |
+| ---------- | -------------------------------------------------------- |
+| extras     | 可能出现在语言中任何地方的符号数组，空格换行之类的字符。     |
 | inline     | 一组规则名称，应通过将其所有用法替换为其定义的副本来自动从语法中删除。这对于在多个地方使用但不想在运行时创建语法树节点的规则很有用。 |
-| conflicts  | 规则名称数组的数组。                                                                                                                 |
-| externals  | 可以由外部扫描器返回的符号名称数组。                                                                                                 |
-| word       | 关键字一般用于编程语言里的操作符与变量连接区分                                                                                       |
-| supertypes | 把隐藏的规则放置到 supertypes 里                                                                                                     |
+| conflicts  | 规则名称数组的数组。                                       |
+| externals  | 可以由外部扫描器返回的符号名称数组。                       |
+| word       | 关键字一般用于编程语言里的操作符与变量连接区分         |
+| supertypes | 把隐藏的规则放置到 supertypes 里                  |
 
-**内置函数**
 
-| 名称            | 表达式                     | 示例                                  | 说明                                                                                                                                                                                      |
-| --------------- | -------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| seq             | seq(rule1, rule2, …)       | `seq("(", /w+,?/, ")")`               | 使用其他的规则构建一个新的规则，按顺序拼接下去                                                                                                                                            |
-| choice          | choice(rule1, rule2, …)    | `choice("'", "\"")`                   | 使用其他规则创建一个新规则，顺序无关，类似于正则里 `                                                                                                                                      | ` 效果 |
-| repeat          | repeat(rule)               | `repeat(" ")`                         | 重复 0-n 该规则，类似于正则里的 `*` 效果                                                                                                                                                  |
-| repeat1         | repeat1(rule)              | `repeat1("0x")`                       | 重复 1-n 该规则，类似于正则里的 `+` 效果                                                                                                                                                  |
-| optional        | optional(rule)             | `optional("0x")`                      | 重复 0-1 该规则，类似于正则里的 `?` 效果                                                                                                                                                  |
-| prec            | prec(number, rule)         | `prec(1, /\+-\*\\/)`                  | 指定规则优先级。默认优先级为 0。一般用于 choice 有叠加的情况                                                                                                                              |
-| prec.left       | prec.left(number, rule)    | `prec.left(1, /\+-\*\\/)`             | 出现相同规则优先级时，优先执行左侧规则。                                                                                                                                                  |
-| prec.right      | prec.right(number, rule)   | `prec.right(1, /\+-\*\\/)`            | 出现相同规则优先级时，优先执行右侧规则。                                                                                                                                                  |
-| prec.dynamic    | prec.dynamic(number, rule) | `prec.dynamic(1, /\+-\*\\/)`          | 优先级在动态运行时有效。动态运行处理语法冲突时，才有必要。                                                                                                                                |
+### 内置函数
+
+| 名称            | 表达式                     | 示例                                  | 说明                                                         |
+| --------------- | -------------------------- | ------------------------------------- | ------------------------------------------------------------ |
+| seq             | seq(rule1, rule2, …)       | `seq("(", /w+,?/, ")")`               | 使用其他的规则构建一个新的规则，按顺序拼接下去               |
+| choice          | choice(rule1, rule2, …)    | `choice("'", "\"")`                   | 使用其他规则创建一个新规则，顺序无关，类似于正则里 `|` 效果  |
+| repeat          | repeat(rule)               | `repeat(" ")`                         | 重复 0-n 该规则，类似于正则里的 `*` 效果                     |
+| repeat1         | repeat1(rule)              | `repeat1("0x")`                       | 重复 1-n 该规则，类似于正则里的 `+` 效果                     |
+| optional        | optional(rule)             | `optional("0x")`                      | 重复 0-1 该规则，类似于正则里的 `?` 效果                     |
+| prec            | prec(number, rule)         | `prec(1, /\+-\*\\/)`                  | 指定规则优先级。默认优先级为 0。一般用于 choice 有叠加的情况 |
+| prec.left       | prec.left(number, rule)    | `prec.left(1, /\+-\*\\/)`             | 出现相同规则优先级时，优先执行左侧规则。                     |
+| prec.right      | prec.right(number, rule)   | `prec.right(1, /\+-\*\\/)`            | 出现相同规则优先级时，优先执行右侧规则。                     |
+| prec.dynamic    | prec.dynamic(number, rule) | `prec.dynamic(1, /\+-\*\\/)`          | 优先级在动态运行时有效。动态运行处理语法冲突时，才有必要。   |
 | token           | token(rule)                | `token(prec(1, /\+-\*\\/))`           | 将规则输出的内容标记为单个符号。默认是将字符串或正则标记为单独的符号。本函数可以将复杂表达式，标记为单个符号(在 c 里有优化效果，多个字符作为一个分支，否则会每个规则都需要一个分支代码)。 |
-| token.immediate | token.immediate(rule)      | `token.immediate(prec(1, /\+-\*\\/))` | 只有在前面没有空格时，进行符号化。                                                                                                                                                        |
-| alias           | alias(rule, name)          | `alias($.string, "commit")`           | 语法树中以替代名称出现。                                                                                                                                                                  |
-| field           | field(name, rule)          | `field("key", choice($.string))`      | 将字段名称分配给规则，解析后可以用该名命中规则匹配。                                                                                                                                      |
+| token.immediate | token.immediate(rule)      | `token.immediate(prec(1, /\+-\*\\/))` | 只有在前面没有空格时，进行符号化。                           |
+| alias           | alias(rule, name)          | `alias($.string, "commit")`           | 语法树中以替代名称出现。                                     |
+| field           | field(name, rule)          | `field("key", choice($.string))`      | 将字段名称分配给规则，解析后可以用该名命中规则匹配。         |
+
+
 
 ## 参考
 
@@ -353,6 +443,12 @@ module.exports = grammar({
 - [TreeSitter 基本语法](https://kaisawind.gitee.io/2022/07/08/2022-07-08-tree-sitter/)
 - [使用 tree-sitter 生成语法树](https://blog.lolli.tech/tree-sitter/)
 
+
+
+
+
+
+
 <details>
 <summary>语法代码</summary>
 
@@ -360,9 +456,9 @@ module.exports = grammar({
 module.exports = grammar({
   name: "move",
 
-  extras: ($) => [$.comment, /\s/],
+  // extras: ($) => [$.comment, /\s/],
 
-  conflicts: ($) => [[$._definition, $.function_definition], [$.module_path]],
+  // conflicts: ($) => [[$._definition, $.function_definition], [$.module_path]],
 
   rules: {
     source_file: ($) => $.module_definition,

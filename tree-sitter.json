@@ -1,0 +1,36 @@
+{
+  "grammars": [
+    {
+      "name": "move",
+      "camelcase": "Move",
+      "scope": "source.move",
+      "path": ".",
+      "file-types": ["move"],
+      "highlights": "queries/highlights.scm",
+      "tags": "queries/tags.scm",
+      "injection-regex": "move"
+    }
+  ],
+  "metadata": {
+    "version": "0.23.1",
+    "license": "MIT",
+    "description": "Move grammar for Aptos tree-sitter",
+    "authors": [
+      {
+        "name": "simons",
+        "email": "reggiesimons2cy@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/caoyang2002/tree-sitter-move-aptos"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}

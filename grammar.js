@@ -14,7 +14,6 @@ const PRECEDENCE = {
   shl_assign: 1,    // <<= (执行左移位并赋值)
   shr_assign: 1,    // >>= (执行右移位并赋值)
 
-  // implies: 2,       // ==> (蕴含)
   or: 2,           // || (逻辑或)
   and: 3,          // && (逻辑与)
 
@@ -84,7 +83,6 @@ module.exports = grammar({
       $.module_definition,
       $.script_definition
     ),
-    // source_file: $ => repeat($.script_definition),
 
     // 声明 
     use_declaration: $ => seq(

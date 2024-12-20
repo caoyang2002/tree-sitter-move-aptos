@@ -1,3 +1,4 @@
+// 运算符优先级
 const PRECEDENCE = {
   assign: 1,
   implies: 2, // ==>
@@ -28,10 +29,14 @@ const PRECEDENCE = {
 }
 
 module.exports = grammar({
-  name: 'move',
+  name: 'move', // 语言名称
+  // 额外规则
   extras: $ => [$._whitespace, $.line_comment, $.block_comment, $.newline, $.annotation],
+  // 标识符 
   word: $ => $.identifier,
+  // 类型
   supertypes: $ => [$._spec_block_target],
+  // 冲突 
   conflicts: $ => [
     [$.annotation_expr, $.module_access],
     [$._expression, $._expression_term],
@@ -48,14 +53,16 @@ module.exports = grammar({
     [$.break_expression],
     [$.abort_expression],
   ],
-
+// 规则定义
   rules: {
+    // 源文件
     source_file: $ => repeat($.module_definition),
 
-    // parse use declarations
+    // 声明 
     use_declaration: $ => seq(
       optional('public'),
       'use', choice($.use_fun, $.use_module, $.use_module_member, $.use_module_members), ';'),
+
     use_fun: $ => seq(
       'fun',
       $.module_access,
@@ -742,6 +749,7 @@ module.exports = grammar({
       field('access', $.module_access),
     ),
 
+    // 指定表达式
     assign_expression: $ => prec.left(PRECEDENCE.assign,
       seq(
         field('lhs', $._unary_expression),

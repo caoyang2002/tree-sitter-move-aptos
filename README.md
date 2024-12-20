@@ -15,7 +15,9 @@ tree-sitter  playground
 
 #  Tree-sitter 使用教程
 
-项目地址:https://gitcode.com/gh_mirrors/tr/tree-sitter
+项目地址: 
+- docs: https://tree-sitter.github.io/tree-sitter
+- repo: https://github.com/tree-sitter/tree-sitter
 
 > Tree-sitter 是一个解析器生成工具和增量解析库。它能够为源文件构建具体的语法树，并且能够高效地更新语法树，即使在源文件被编辑时也是如此。Tree-sitter 旨在：
 

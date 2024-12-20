@@ -48,7 +48,7 @@ const expr_precedence = {
   RANGE: 16,
 };
 module.exports = grammar({
-  name: 'move_on_aptos',
+  name: 'move',
 
   word: $ => $.identifier,
 

@@ -1,4 +1,12 @@
 {
+  "tree-sitter": [
+    {
+      "scope": "test/example.move",
+      "file-types": [
+        "move"
+      ],
+      "first-line-regex": "#!.*\\bruby$"
+    }],
   "grammars": [
     {
       "name": "move",

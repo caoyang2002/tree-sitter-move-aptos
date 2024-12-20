@@ -1,40 +1,27 @@
-((function_definition) @local.scope
+((method) @local.scope
  (#set! local.scope-inherits false))
 
 [
+  (lambda)
   (block)
-  (code_block)
-  (if_expression)
-  (while_expression)
-  (loop_expression)
+  (do_block)
 ] @local.scope
 
-; Function parameters
-(parameter (identifier) @local.definition)
-(function_parameter (identifier) @local.definition)
+(block_parameter (identifier) @local.definition)
+(block_parameters (identifier) @local.definition)
+(destructured_parameter (identifier) @local.definition)
+(hash_splat_parameter (identifier) @local.definition)
+(lambda_parameters (identifier) @local.definition)
+(method_parameters (identifier) @local.definition)
+(splat_parameter (identifier) @local.definition)
 
-; Variable declarations
-(let_declaration
-  name: (identifier) @local.definition)
+(keyword_parameter name: (identifier) @local.definition)
+(optional_parameter name: (identifier) @local.definition)
 
-; References to local variables
 (identifier) @local.reference
 
-; Variable assignments
-(assignment
-  left: (identifier) @local.definition)
-
-; Pattern bindings in let statements
-(pattern_binding
-  name: (identifier) @local.definition)
-
-; Struct fields in declarations
-(field_declaration
-  name: (identifier) @local.definition)
-
-; Loop and block bindings
-(loop_binding
-  name: (identifier) @local.definition)
-
-(block_binding
-  name: (identifier) @local.definition)
+(assignment left: (identifier) @local.definition)
+(operator_assignment left: (identifier) @local.definition)
+(left_assignment_list (identifier) @local.definition)
+(rest_assignment (identifier) @local.definition)
+(destructured_left_assignment (identifier) @local.definition)

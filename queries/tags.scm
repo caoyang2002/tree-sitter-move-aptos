@@ -1,57 +1,64 @@
-; Function definitions
+; Method definitions
+
 (
   (comment)* @doc
   .
-  (function_definition
-    name: (identifier) @name) @definition.function
-  (#strip! @doc "^//\\s*")
-  (#select-adjacent! @doc @definition.function)
+  [
+    (method
+      name: (_) @name) @definition.method
+    (singleton_method
+      name: (_) @name) @definition.method
+  ]
+  (#strip! @doc "^#\\s*")
+  (#select-adjacent! @doc @definition.method)
+)
+
+(alias
+  name: (_) @name) @definition.method
+
+(setter
+  (identifier) @ignore)
+
+; Class definitions
+
+(
+  (comment)* @doc
+  .
+  [
+    (class
+      name: [
+        (constant) @name
+        (scope_resolution
+          name: (_) @name)
+      ]) @definition.class
+    (singleton_class
+      value: [
+        (constant) @name
+        (scope_resolution
+          name: (_) @name)
+      ]) @definition.class
+  ]
+  (#strip! @doc "^#\\s*")
+  (#select-adjacent! @doc @definition.class)
 )
 
 ; Module definitions
+
 (
-  (comment)* @doc
-  .
-  (module_definition
+  (module
     name: [
-      (module_identifier) @name
-      (address_identifier
+      (constant) @name
+      (scope_resolution
         name: (_) @name)
     ]) @definition.module
-  (#strip! @doc "^//\\s*")
-  (#select-adjacent! @doc @definition.module)
 )
 
-; Struct definitions
+; Calls
+
+(call method: (identifier) @name) @reference.call
+
 (
-  (comment)* @doc
-  .
-  (struct_definition
-    name: (identifier) @name) @definition.struct
-  (#strip! @doc "^//\\s*")
-  (#select-adjacent! @doc @definition.struct)
+  [(identifier) (constant)] @name @reference.call
+  (#is-not? local)
+  (#not-match? @name "^(lambda|load|require|require_relative|__FILE__|__LINE__)$")
 )
-
-; Function calls
-(call
-  function: (identifier) @name) @reference.call
-
-; Type definitions/references
-(type_annotation
-  type: (identifier) @name) @reference.type
-
-; Module uses and imports
-(use_declaration
-  module: [
-    (module_identifier) @name
-    (address_identifier
-      name: (_) @name)
-  ]) @reference.module
-
-; Struct instantiations
-(struct_instantiation
-  type: (identifier) @name) @reference.struct
-
-; Address definitions
-(address_definition
-  name: (identifier) @name) @definition.address

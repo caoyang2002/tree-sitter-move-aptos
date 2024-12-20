@@ -1,118 +1,48 @@
+; 基本标识符
 (identifier) @variable
-((identifier) @function
- (#is-not? local))
 
+; 基本关键字
 [
-  "abort"
-  "acquires"
-  "as"
-  "break"
-  "const"
-  "continue"
-  "copy"
-  "else"
-  "false"
-  "fun"
-  "if"
-  "let"
-  "loop"
-  "module"
-  "move"
-  "native"
   "public"
-  "return"
-  "script"
-  "spec"
+  "fun"
   "struct"
-  "true"
+  "module"
+
   "use"
+  "let"
+  "if"
+  "else"
+  "loop"
   "while"
+  "break"
+  "continue"
+  "return"
 ] @keyword
 
-((identifier) @keyword
- (#match? @keyword "^(public|entry)$"))
-
-(constant) @constructor
-
-; Function calls
-(call
-  function: [(identifier) (constant)] @function)
-
-; Function definitions
+; 函数相关
 (function_definition
-  name: [(identifier) (constant)] @function)
-
-; Identifiers
-[
-  (address)
-  (module_identifier)
-] @namespace
-
-((constant) @constant
- (#match? @constant "^[A-Z][A-Z\\d_]*$"))
-
-[
-  (self)
-] @variable.builtin
-
-(parameter (identifier) @variable.parameter)
-(function_parameter (identifier) @variable.parameter)
-
-; Types
-(type_annotation
-  type: (identifier) @type)
-(struct_definition
-  name: (identifier) @type)
-
-; Literals
-[
-  (string_literal)
-  (byte_string_literal)
-] @string
-
-[
-  (address_literal)
-  (number_literal)
-] @number
-
-[
-  (true)
-  (false)
-] @constant.builtin
+  (identifier) @function)
 
 (comment) @comment
 
-; Operators
+; 字面量
+(number_literal) @number
+
+; 括号和分隔符
+[ "(" ")" "[" "]" "{" "}" ] @punctuation.bracket
+[ ";" "," ] @punctuation.delimiter
+
+; 运算符
 [
   "="
-  "=="
-  "!="
-  "<"
-  "<="
-  ">"
-  ">="
   "+"
   "-"
   "*"
   "/"
-  "&"
-  "|"
-  "^"
-  "!"
-  "::"
+  "=="
+  "!="
+  "<"
+  ">"
+  "<="
+  ">="
 ] @operator
-
-[
-  ","
-  ";"
-  "."
-] @punctuation.delimiter
-
-[
-  "("
-  ")"
-  "["
-  "]"
-  "{"
-  "}"
-] @punctuation.bracket

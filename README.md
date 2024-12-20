@@ -6,7 +6,12 @@
 tree-sitter parse test.move
 ```
 
+ui
 
+```bash
+tree-sitter build --wasm
+tree-sitter  playground
+```
 
 #  Tree-sitter 使用教程
 

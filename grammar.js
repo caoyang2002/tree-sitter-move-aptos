@@ -1,4 +1,5 @@
-{/* <reference types="tree-sitter-cli/dsl" /> */}
+/// <reference types="./dsl" />
+
 const sepBy1 = (sep, rule) => seq(rule, repeat(seq(sep, rule)));
 const sepBy = (sep, rule) => optional(sepBy1(sep, rule));
 const sepByComma = rule => seq(sepBy(',', rule), optional(','));

@@ -3,7 +3,8 @@
 测试
 
 ```bash
-tree-sitter parse test.move
+./run_test.sh ./test  
+# tree-sitter parse ./test/sources/example.move
 ```
 
 ui

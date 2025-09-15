@@ -198,6 +198,21 @@
     }
   },
   {
+    "type": "access_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_sep_resources",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "address_body",
     "named": true,
     "fields": {},
@@ -2462,6 +2477,16 @@
     "type": "closure",
     "named": true,
     "fields": {
+      "args": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "arg_list",
+            "named": true
+          }
+        ]
+      },
       "body": {
         "multiple": false,
         "required": true,
@@ -2616,16 +2641,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "arg_list",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -2670,6 +2685,21 @@
         },
         {
           "type": "num_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comma_sep_resources",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "resource_name",
           "named": true
         }
       ]
@@ -4001,7 +4031,7 @@
           }
         ]
       },
-      "parameters": {
+      "parameters参数": {
         "multiple": false,
         "required": true,
         "types": [
@@ -4011,12 +4041,22 @@
           }
         ]
       },
-      "return_type": {
+      "return_type返回类型": {
         "multiple": false,
         "required": false,
         "types": [
           {
             "type": "ret_type",
+            "named": true
+          }
+        ]
+      },
+      "specifier访问修饰": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "specifier",
             "named": true
           }
         ]
@@ -6399,10 +6439,6 @@
           "named": true
         },
         {
-          "type": "spec_block",
-          "named": true
-        },
-        {
           "type": "struct_definition",
           "named": true
         }
@@ -6720,7 +6756,7 @@
           }
         ]
       },
-      "parameters": {
+      "parameters参数": {
         "multiple": false,
         "required": true,
         "types": [
@@ -6730,12 +6766,22 @@
           }
         ]
       },
-      "return_type": {
+      "return_type返回类型": {
         "multiple": false,
         "required": false,
         "types": [
           {
             "type": "ret_type",
+            "named": true
+          }
+        ]
+      },
+      "specifier访问修饰": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "specifier",
             "named": true
           }
         ]
@@ -6788,10 +6834,20 @@
       },
       "return_type": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "ret_type",
+            "named": true
+          }
+        ]
+      },
+      "specifier": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "specifier",
             "named": true
           }
         ]
@@ -9305,6 +9361,21 @@
     }
   },
   {
+    "type": "specifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "access_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "struct_definition",
     "named": true,
     "fields": {
@@ -9657,10 +9728,20 @@
       },
       "return_type": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "ret_type",
+            "named": true
+          }
+        ]
+      },
+      "specifier": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "specifier",
             "named": true
           }
         ]
@@ -9856,10 +9937,20 @@
       },
       "return_type": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "ret_type",
+            "named": true
+          }
+        ]
+      },
+      "specifier": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "specifier",
             "named": true
           }
         ]
@@ -10493,6 +10584,10 @@
     "named": false
   },
   {
+    "type": "acquires",
+    "named": false
+  },
+  {
     "type": "address",
     "named": false
   },
@@ -10730,6 +10825,10 @@
   {
     "type": "public",
     "named": false
+  },
+  {
+    "type": "resource_name",
+    "named": true
   },
   {
     "type": "return",

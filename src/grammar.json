@@ -921,10 +921,6 @@
                   {
                     "type": "SYMBOL",
                     "name": "_enum_item"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "spec_block"
                   }
                 ]
               }
@@ -1946,7 +1942,7 @@
         },
         {
           "type": "FIELD",
-          "name": "parameters",
+          "name": "parameters参数",
           "content": {
             "type": "SYMBOL",
             "name": "function_parameters"
@@ -1957,10 +1953,26 @@
           "members": [
             {
               "type": "FIELD",
-              "name": "return_type",
+              "name": "return_type返回类型",
               "content": {
                 "type": "SYMBOL",
                 "name": "ret_type"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "specifier访问修饰",
+              "content": {
+                "type": "SYMBOL",
+                "name": "specifier"
               }
             },
             {
@@ -3128,14 +3140,122 @@
           }
         },
         {
-          "type": "FIELD",
-          "name": "return_type",
-          "content": {
-            "type": "SYMBOL",
-            "name": "ret_type"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ":"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "return_type",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "ret_type"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "specifier",
+              "content": {
+                "type": "SYMBOL",
+                "name": "specifier"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
+    },
+    "specifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "acquires"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "access_list"
+        }
+      ]
+    },
+    "access_list": {
+      "type": "SYMBOL",
+      "name": "comma_sep_resources"
+    },
+    "comma_sep_resources": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "resource_name"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "resource_name"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "resource_name": {
+      "type": "PATTERN",
+      "value": "[A-Z][a-zA-Z0-9_]*"
     },
     "_type": {
       "type": "CHOICE",
@@ -4953,16 +5073,20 @@
           "value": "|"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "arg_list"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "FIELD",
+          "name": "args",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "arg_list"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
         },
         {
           "type": "STRING",

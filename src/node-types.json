@@ -58,7 +58,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -86,11 +86,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -107,6 +107,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -134,7 +142,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -183,6 +191,63 @@
           },
           {
             "type": "while_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "address_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "friend_declaration",
+          "named": true
+        },
+        {
+          "type": "package_use_declaration",
+          "named": true
+        },
+        {
+          "type": "script_definition",
+          "named": true
+        },
+        {
+          "type": "simple_module_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "address_definition",
+    "named": true,
+    "fields": {
+      "address_body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "address_body",
+            "named": true
+          }
+        ]
+      },
+      "address_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "module_identifier",
+            "named": true
+          },
+          {
+            "type": "num_literal",
             "named": true
           }
         ]
@@ -285,7 +350,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -313,11 +378,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -334,6 +399,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -361,7 +434,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -579,7 +652,7 @@
           "named": true
         },
         {
-          "type": "assign_expression",
+          "type": "assignment_expression",
           "named": true
         },
         {
@@ -607,11 +680,11 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "cast_expression",
           "named": true
         },
         {
-          "type": "cast_expression",
+          "type": "closure",
           "named": true
         },
         {
@@ -628,6 +701,14 @@
         },
         {
           "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_expression",
+          "named": true
+        },
+        {
+          "type": "function_call_expression",
           "named": true
         },
         {
@@ -655,7 +736,7 @@
           "named": true
         },
         {
-          "type": "macro_call_expression",
+          "type": "macro_function_call_expression",
           "named": true
         },
         {
@@ -710,7 +791,7 @@
     }
   },
   {
-    "type": "assign_expression",
+    "type": "assignment_expression",
     "named": true,
     "fields": {
       "lhs": {
@@ -746,10 +827,6 @@
             "named": true
           },
           {
-            "type": "call_expression",
-            "named": true
-          },
-          {
             "type": "continue_expression",
             "named": true
           },
@@ -766,6 +843,10 @@
             "named": true
           },
           {
+            "type": "function_call_expression",
+            "named": true
+          },
+          {
             "type": "hex_string_literal",
             "named": true
           },
@@ -778,7 +859,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -836,7 +917,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -864,11 +945,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -885,6 +966,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -912,7 +1001,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -1007,7 +1096,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -1035,11 +1124,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -1056,6 +1145,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -1083,7 +1180,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -1163,7 +1260,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -1191,11 +1288,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -1212,6 +1309,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -1239,7 +1344,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -1494,7 +1599,7 @@
           "named": true
         },
         {
-          "type": "assign_expression",
+          "type": "assignment_expression",
           "named": true
         },
         {
@@ -1526,11 +1631,11 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "cast_expression",
           "named": true
         },
         {
-          "type": "cast_expression",
+          "type": "closure",
           "named": true
         },
         {
@@ -1547,6 +1652,14 @@
         },
         {
           "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_expression",
+          "named": true
+        },
+        {
+          "type": "function_call_expression",
           "named": true
         },
         {
@@ -1574,7 +1687,7 @@
           "named": true
         },
         {
-          "type": "macro_call_expression",
+          "type": "macro_function_call_expression",
           "named": true
         },
         {
@@ -1598,6 +1711,10 @@
           "named": true
         },
         {
+          "type": "package_use_declaration",
+          "named": true
+        },
+        {
           "type": "quantifier_expression",
           "named": true
         },
@@ -1615,10 +1732,6 @@
         },
         {
           "type": "unit_expression",
-          "named": true
-        },
-        {
-          "type": "use_declaration",
           "named": true
         },
         {
@@ -1668,7 +1781,7 @@
           "named": true
         },
         {
-          "type": "assign_expression",
+          "type": "assignment_expression",
           "named": true
         },
         {
@@ -1696,11 +1809,11 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "cast_expression",
           "named": true
         },
         {
-          "type": "cast_expression",
+          "type": "closure",
           "named": true
         },
         {
@@ -1717,6 +1830,14 @@
         },
         {
           "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_expression",
+          "named": true
+        },
+        {
+          "type": "function_call_expression",
           "named": true
         },
         {
@@ -1748,7 +1869,7 @@
           "named": true
         },
         {
-          "type": "macro_call_expression",
+          "type": "macro_function_call_expression",
           "named": true
         },
         {
@@ -1828,7 +1949,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -1856,11 +1977,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -1877,6 +1998,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -1904,7 +2033,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -1994,7 +2123,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -2022,11 +2151,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -2043,6 +2172,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -2070,7 +2207,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -2136,32 +2273,6 @@
     }
   },
   {
-    "type": "call_expression",
-    "named": true,
-    "fields": {
-      "args": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "arg_list",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "name_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "cast_expression",
     "named": true,
     "fields": {
@@ -2182,7 +2293,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -2210,11 +2321,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -2231,6 +2342,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -2258,7 +2377,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -2337,6 +2456,176 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "closure",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "abort_expression",
+            "named": true
+          },
+          {
+            "type": "address_literal",
+            "named": true
+          },
+          {
+            "type": "annotation_expression",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "borrow_expression",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "byte_string_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
+            "type": "closure",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
+            "named": true
+          },
+          {
+            "type": "hex_string_literal",
+            "named": true
+          },
+          {
+            "type": "identified_expression",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "lambda_expression",
+            "named": true
+          },
+          {
+            "type": "loop_expression",
+            "named": true
+          },
+          {
+            "type": "macro_function_call_expression",
+            "named": true
+          },
+          {
+            "type": "match_expression",
+            "named": true
+          },
+          {
+            "type": "move_or_copy_expression",
+            "named": true
+          },
+          {
+            "type": "name_expression",
+            "named": true
+          },
+          {
+            "type": "num_literal",
+            "named": true
+          },
+          {
+            "type": "pack_expression",
+            "named": true
+          },
+          {
+            "type": "quantifier_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "spec_block",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "arg_list",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2427,7 +2716,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -2455,11 +2744,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -2476,6 +2765,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -2503,7 +2800,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -2650,7 +2947,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -2678,11 +2975,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -2699,6 +2996,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -2726,7 +3031,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -2814,10 +3119,6 @@
             "named": true
           },
           {
-            "type": "call_expression",
-            "named": true
-          },
-          {
             "type": "continue_expression",
             "named": true
           },
@@ -2827,6 +3128,10 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -2842,7 +3147,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -2904,10 +3209,6 @@
             "named": true
           },
           {
-            "type": "call_expression",
-            "named": true
-          },
-          {
             "type": "continue_expression",
             "named": true
           },
@@ -2917,6 +3218,10 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -2932,7 +3237,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -3059,7 +3364,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -3087,11 +3392,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -3108,6 +3413,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -3135,7 +3448,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -3221,7 +3534,7 @@
           "named": true
         },
         {
-          "type": "assign_expression",
+          "type": "assignment_expression",
           "named": true
         },
         {
@@ -3249,11 +3562,11 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "cast_expression",
           "named": true
         },
         {
-          "type": "cast_expression",
+          "type": "closure",
           "named": true
         },
         {
@@ -3270,6 +3583,14 @@
         },
         {
           "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_expression",
+          "named": true
+        },
+        {
+          "type": "function_call_expression",
           "named": true
         },
         {
@@ -3297,7 +3618,7 @@
           "named": true
         },
         {
-          "type": "macro_call_expression",
+          "type": "macro_function_call_expression",
           "named": true
         },
         {
@@ -3409,6 +3730,186 @@
     }
   },
   {
+    "type": "for_expression",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "abort_expression",
+            "named": true
+          },
+          {
+            "type": "address_literal",
+            "named": true
+          },
+          {
+            "type": "annotation_expression",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "borrow_expression",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "byte_string_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
+            "type": "closure",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
+            "named": true
+          },
+          {
+            "type": "hex_string_literal",
+            "named": true
+          },
+          {
+            "type": "identified_expression",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "lambda_expression",
+            "named": true
+          },
+          {
+            "type": "loop_expression",
+            "named": true
+          },
+          {
+            "type": "macro_function_call_expression",
+            "named": true
+          },
+          {
+            "type": "match_expression",
+            "named": true
+          },
+          {
+            "type": "move_or_copy_expression",
+            "named": true
+          },
+          {
+            "type": "name_expression",
+            "named": true
+          },
+          {
+            "type": "num_literal",
+            "named": true
+          },
+          {
+            "type": "pack_expression",
+            "named": true
+          },
+          {
+            "type": "quantifier_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "spec_block",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      },
+      "iterator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable_identifier",
+            "named": true
+          }
+        ]
+      },
+      "range": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "range_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "friend_access",
     "named": true,
     "fields": {
@@ -3451,10 +3952,36 @@
     }
   },
   {
+    "type": "function_call_expression",
+    "named": true,
+    "fields": {
+      "args": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "arg_list",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "function_definition",
     "named": true,
     "fields": {
-      "body": {
+      "body函数体": {
         "multiple": false,
         "required": true,
         "types": [
@@ -3494,7 +4021,7 @@
           }
         ]
       },
-      "type_parameters": {
+      "type_parameters类型参数": {
         "multiple": false,
         "required": false,
         "types": [
@@ -3506,11 +4033,34 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
-          "type": "modifier",
+          "type": "function_modifiers",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_modifiers",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_behavior_modifier",
+          "named": true
+        },
+        {
+          "type": "implementation_modifier",
+          "named": true
+        },
+        {
+          "type": "visibility_modifier",
           "named": true
         }
       ]
@@ -3590,64 +4140,23 @@
             "named": true
           }
         ]
-      },
-      "return_type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "apply_type",
-            "named": true
-          },
-          {
-            "type": "function_type",
-            "named": true
-          },
-          {
-            "type": "primitive_type",
-            "named": true
-          },
-          {
-            "type": "ref_type",
-            "named": true
-          },
-          {
-            "type": "tuple_type",
-            "named": true
-          }
-        ]
       }
     }
   },
   {
     "type": "function_type_parameters",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "apply_type",
-          "named": true
-        },
-        {
-          "type": "function_type",
-          "named": true
-        },
-        {
-          "type": "primitive_type",
-          "named": true
-        },
-        {
-          "type": "ref_type",
-          "named": true
-        },
-        {
-          "type": "tuple_type",
-          "named": true
-        }
-      ]
+    "fields": {
+      "lambda_parameter": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lambda_expression",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -3682,7 +4191,7 @@
           "named": true
         },
         {
-          "type": "assign_expression",
+          "type": "assignment_expression",
           "named": true
         },
         {
@@ -3710,11 +4219,11 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "cast_expression",
           "named": true
         },
         {
-          "type": "cast_expression",
+          "type": "closure",
           "named": true
         },
         {
@@ -3731,6 +4240,14 @@
         },
         {
           "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_expression",
+          "named": true
+        },
+        {
+          "type": "function_call_expression",
           "named": true
         },
         {
@@ -3758,7 +4275,7 @@
           "named": true
         },
         {
-          "type": "macro_call_expression",
+          "type": "macro_function_call_expression",
           "named": true
         },
         {
@@ -3838,7 +4355,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -3866,11 +4383,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -3887,6 +4404,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -3914,7 +4439,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -3984,7 +4509,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -4012,11 +4537,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -4033,6 +4558,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -4060,7 +4593,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -4130,7 +4663,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -4158,11 +4691,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -4179,6 +4712,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -4206,7 +4747,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -4267,6 +4808,11 @@
     "fields": {}
   },
   {
+    "type": "implementation_modifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "index_expression",
     "named": true,
     "fields": {
@@ -4299,10 +4845,6 @@
             "named": true
           },
           {
-            "type": "call_expression",
-            "named": true
-          },
-          {
             "type": "continue_expression",
             "named": true
           },
@@ -4312,6 +4854,10 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -4327,7 +4873,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -4377,7 +4923,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -4405,11 +4951,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -4426,6 +4972,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -4453,7 +5007,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -4524,121 +5078,12 @@
     }
   },
   {
-    "type": "lambda_binding",
-    "named": true,
-    "fields": {
-      "bind": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "address_literal",
-            "named": true
-          },
-          {
-            "type": "at_bind",
-            "named": true
-          },
-          {
-            "type": "bind_unpack",
-            "named": true
-          },
-          {
-            "type": "bind_var",
-            "named": true
-          },
-          {
-            "type": "bool_literal",
-            "named": true
-          },
-          {
-            "type": "byte_string_literal",
-            "named": true
-          },
-          {
-            "type": "hex_string_literal",
-            "named": true
-          },
-          {
-            "type": "mut_bind_var",
-            "named": true
-          },
-          {
-            "type": "num_literal",
-            "named": true
-          }
-        ]
-      },
-      "ty": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "apply_type",
-            "named": true
-          },
-          {
-            "type": "function_type",
-            "named": true
-          },
-          {
-            "type": "primitive_type",
-            "named": true
-          },
-          {
-            "type": "ref_type",
-            "named": true
-          },
-          {
-            "type": "tuple_type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "comma_bind_list",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "lambda_bindings",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "lambda_binding",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "lambda_expression",
     "named": true,
     "fields": {
-      "bindings": {
+      "expression": {
         "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "lambda_bindings",
-            "named": true
-          }
-        ]
-      },
-      "expr": {
-        "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "abort_expression",
@@ -4653,7 +5098,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -4681,11 +5126,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -4702,6 +5147,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -4729,7 +5182,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -4781,33 +5234,97 @@
             "named": true
           }
         ]
+      },
+      "lambda_parameter": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "apply_type",
+            "named": true
+          },
+          {
+            "type": "function_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "ref_type",
+            "named": true
+          },
+          {
+            "type": "tuple_type",
+            "named": true
+          },
+          {
+            "type": "variable_identifier",
+            "named": true
+          },
+          {
+            "type": "|",
+            "named": false
+          }
+        ]
+      },
+      "param_type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "apply_type",
+            "named": true
+          },
+          {
+            "type": "function_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "ref_type",
+            "named": true
+          },
+          {
+            "type": "tuple_type",
+            "named": true
+          }
+        ]
+      },
+      "return_type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "apply_type",
+            "named": true
+          },
+          {
+            "type": "function_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "ref_type",
+            "named": true
+          },
+          {
+            "type": "tuple_type",
+            "named": true
+          }
+        ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "apply_type",
-          "named": true
-        },
-        {
-          "type": "function_type",
-          "named": true
-        },
-        {
-          "type": "primitive_type",
-          "named": true
-        },
-        {
-          "type": "ref_type",
-          "named": true
-        },
-        {
-          "type": "tuple_type",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -4841,7 +5358,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -4869,11 +5386,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -4890,6 +5407,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -4917,7 +5442,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -5019,7 +5544,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -5047,11 +5572,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -5068,6 +5593,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -5095,7 +5628,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -5151,7 +5684,7 @@
     }
   },
   {
-    "type": "macro_call_expression",
+    "type": "macro_function_call_expression",
     "named": true,
     "fields": {
       "access": {
@@ -5240,16 +5773,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "modifier",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -5289,7 +5812,7 @@
           "named": true
         },
         {
-          "type": "assign_expression",
+          "type": "assignment_expression",
           "named": true
         },
         {
@@ -5321,11 +5844,11 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "cast_expression",
           "named": true
         },
         {
-          "type": "cast_expression",
+          "type": "closure",
           "named": true
         },
         {
@@ -5342,6 +5865,14 @@
         },
         {
           "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_expression",
+          "named": true
+        },
+        {
+          "type": "function_call_expression",
           "named": true
         },
         {
@@ -5369,7 +5900,7 @@
           "named": true
         },
         {
-          "type": "macro_call_expression",
+          "type": "macro_function_call_expression",
           "named": true
         },
         {
@@ -5448,7 +5979,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -5476,11 +6007,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -5497,6 +6028,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -5524,7 +6063,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -5600,7 +6139,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -5628,11 +6167,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -5649,6 +6188,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -5676,7 +6223,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -5742,11 +6289,6 @@
     }
   },
   {
-    "type": "modifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "module_access",
     "named": true,
     "fields": {
@@ -5777,11 +6319,15 @@
           {
             "type": "module_identifier",
             "named": true
+          },
+          {
+            "type": "module_identity",
+            "named": true
           }
         ]
       },
       "type_arguments": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -5849,15 +6395,15 @@
           "named": true
         },
         {
+          "type": "package_use_declaration",
+          "named": true
+        },
+        {
           "type": "spec_block",
           "named": true
         },
         {
           "type": "struct_definition",
-          "named": true
-        },
-        {
-          "type": "use_declaration",
           "named": true
         }
       ]
@@ -5940,7 +6486,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -5968,11 +6514,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -5989,6 +6535,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -6016,7 +6570,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -6186,7 +6740,7 @@
           }
         ]
       },
-      "type_parameters": {
+      "type_parameters类型参数": {
         "multiple": false,
         "required": false,
         "types": [
@@ -6198,11 +6752,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
-          "type": "modifier",
+          "type": "function_modifiers",
           "named": true
         }
       ]
@@ -6369,6 +6923,29 @@
     }
   },
   {
+    "type": "package_use_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "use_module",
+          "named": true
+        },
+        {
+          "type": "use_module_member",
+          "named": true
+        },
+        {
+          "type": "use_module_members",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "positional_fields",
     "named": true,
     "fields": {},
@@ -6444,7 +7021,7 @@
           "named": true
         },
         {
-          "type": "assign_expression",
+          "type": "assignment_expression",
           "named": true
         },
         {
@@ -6472,11 +7049,11 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "cast_expression",
           "named": true
         },
         {
-          "type": "cast_expression",
+          "type": "closure",
           "named": true
         },
         {
@@ -6493,6 +7070,14 @@
         },
         {
           "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_expression",
+          "named": true
+        },
+        {
+          "type": "function_call_expression",
           "named": true
         },
         {
@@ -6528,7 +7113,7 @@
           "named": true
         },
         {
-          "type": "macro_call_expression",
+          "type": "macro_function_call_expression",
           "named": true
         },
         {
@@ -6630,7 +7215,7 @@
           "named": true
         },
         {
-          "type": "assign_expression",
+          "type": "assignment_expression",
           "named": true
         },
         {
@@ -6658,11 +7243,11 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "cast_expression",
           "named": true
         },
         {
-          "type": "cast_expression",
+          "type": "closure",
           "named": true
         },
         {
@@ -6679,6 +7264,14 @@
         },
         {
           "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_expression",
+          "named": true
+        },
+        {
+          "type": "function_call_expression",
           "named": true
         },
         {
@@ -6706,7 +7299,7 @@
           "named": true
         },
         {
-          "type": "macro_call_expression",
+          "type": "macro_function_call_expression",
           "named": true
         },
         {
@@ -6762,6 +7355,320 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "range_expression",
+    "named": true,
+    "fields": {
+      "end": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "abort_expression",
+            "named": true
+          },
+          {
+            "type": "address_literal",
+            "named": true
+          },
+          {
+            "type": "annotation_expression",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "borrow_expression",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "byte_string_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
+            "type": "closure",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
+            "named": true
+          },
+          {
+            "type": "hex_string_literal",
+            "named": true
+          },
+          {
+            "type": "identified_expression",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "lambda_expression",
+            "named": true
+          },
+          {
+            "type": "loop_expression",
+            "named": true
+          },
+          {
+            "type": "macro_function_call_expression",
+            "named": true
+          },
+          {
+            "type": "match_expression",
+            "named": true
+          },
+          {
+            "type": "move_or_copy_expression",
+            "named": true
+          },
+          {
+            "type": "name_expression",
+            "named": true
+          },
+          {
+            "type": "num_literal",
+            "named": true
+          },
+          {
+            "type": "pack_expression",
+            "named": true
+          },
+          {
+            "type": "quantifier_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "spec_block",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      },
+      "start": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "abort_expression",
+            "named": true
+          },
+          {
+            "type": "address_literal",
+            "named": true
+          },
+          {
+            "type": "annotation_expression",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "borrow_expression",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "byte_string_literal",
+            "named": true
+          },
+          {
+            "type": "cast_expression",
+            "named": true
+          },
+          {
+            "type": "closure",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
+            "named": true
+          },
+          {
+            "type": "hex_string_literal",
+            "named": true
+          },
+          {
+            "type": "identified_expression",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "lambda_expression",
+            "named": true
+          },
+          {
+            "type": "loop_expression",
+            "named": true
+          },
+          {
+            "type": "macro_function_call_expression",
+            "named": true
+          },
+          {
+            "type": "match_expression",
+            "named": true
+          },
+          {
+            "type": "move_or_copy_expression",
+            "named": true
+          },
+          {
+            "type": "name_expression",
+            "named": true
+          },
+          {
+            "type": "num_literal",
+            "named": true
+          },
+          {
+            "type": "pack_expression",
+            "named": true
+          },
+          {
+            "type": "quantifier_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "spec_block",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit_expression",
+            "named": true
+          },
+          {
+            "type": "vector_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -6865,7 +7772,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -6893,11 +7800,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -6914,6 +7821,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -6941,7 +7856,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -7033,15 +7948,15 @@
           "named": true
         },
         {
+          "type": "package_use_declaration",
+          "named": true
+        },
+        {
           "type": "spec_block",
           "named": true
         },
         {
           "type": "struct_definition",
-          "named": true
-        },
-        {
-          "type": "use_declaration",
           "named": true
         }
       ]
@@ -7064,13 +7979,44 @@
     }
   },
   {
+    "type": "simple_module_definition",
+    "named": true,
+    "fields": {
+      "module_body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "module_body",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "module_identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "address_definition",
+          "named": true
+        },
         {
           "type": "module_definition",
           "named": true
@@ -7103,7 +8049,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -7131,11 +8077,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -7152,6 +8098,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -7179,7 +8133,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -7353,6 +8307,10 @@
           "named": true
         },
         {
+          "type": "package_use_declaration",
+          "named": true
+        },
+        {
           "type": "spec_apply",
           "named": true
         },
@@ -7385,10 +8343,6 @@
           "named": true
         },
         {
-          "type": "use_declaration",
-          "named": true
-        },
-        {
           "type": "usual_spec_function",
           "named": true
         }
@@ -7416,7 +8370,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -7444,11 +8398,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -7465,6 +8419,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -7492,7 +8454,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -7572,7 +8534,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -7600,11 +8562,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -7621,6 +8583,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -7648,7 +8618,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -7734,7 +8704,7 @@
           "named": true
         },
         {
-          "type": "assign_expression",
+          "type": "assignment_expression",
           "named": true
         },
         {
@@ -7762,11 +8732,11 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "cast_expression",
           "named": true
         },
         {
-          "type": "cast_expression",
+          "type": "closure",
           "named": true
         },
         {
@@ -7783,6 +8753,14 @@
         },
         {
           "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_expression",
+          "named": true
+        },
+        {
+          "type": "function_call_expression",
           "named": true
         },
         {
@@ -7810,7 +8788,7 @@
           "named": true
         },
         {
-          "type": "macro_call_expression",
+          "type": "macro_function_call_expression",
           "named": true
         },
         {
@@ -7895,7 +8873,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -7923,11 +8901,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -7944,6 +8922,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -7971,7 +8957,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -8067,7 +9053,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -8095,11 +9081,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -8116,6 +9102,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -8143,7 +9137,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -8483,7 +9477,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -8511,11 +9505,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -8532,6 +9526,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -8559,7 +9561,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -8679,67 +9681,6 @@
     "type": "unit_expression",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "use_declaration",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "use_fun",
-          "named": true
-        },
-        {
-          "type": "use_module",
-          "named": true
-        },
-        {
-          "type": "use_module_member",
-          "named": true
-        },
-        {
-          "type": "use_module_members",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "use_fun",
-    "named": true,
-    "fields": {
-      "alias": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ".",
-            "named": false
-          },
-          {
-            "type": "function_identifier",
-            "named": true
-          },
-          {
-            "type": "module_access",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "module_access",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "use_member",
@@ -8986,7 +9927,7 @@
           "named": true
         },
         {
-          "type": "assign_expression",
+          "type": "assignment_expression",
           "named": true
         },
         {
@@ -9014,11 +9955,11 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "cast_expression",
           "named": true
         },
         {
-          "type": "cast_expression",
+          "type": "closure",
           "named": true
         },
         {
@@ -9035,6 +9976,14 @@
         },
         {
           "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_expression",
+          "named": true
+        },
+        {
+          "type": "function_call_expression",
           "named": true
         },
         {
@@ -9066,7 +10015,7 @@
           "named": true
         },
         {
-          "type": "macro_call_expression",
+          "type": "macro_function_call_expression",
           "named": true
         },
         {
@@ -9133,6 +10082,11 @@
     }
   },
   {
+    "type": "visibility_modifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "while_expression",
     "named": true,
     "fields": {
@@ -9153,7 +10107,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -9181,11 +10135,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -9202,6 +10156,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -9229,7 +10191,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -9299,7 +10261,7 @@
             "named": true
           },
           {
-            "type": "assign_expression",
+            "type": "assignment_expression",
             "named": true
           },
           {
@@ -9327,11 +10289,11 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "cast_expression",
             "named": true
           },
           {
-            "type": "cast_expression",
+            "type": "closure",
             "named": true
           },
           {
@@ -9348,6 +10310,14 @@
           },
           {
             "type": "expression_list",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "function_call_expression",
             "named": true
           },
           {
@@ -9375,7 +10345,7 @@
             "named": true
           },
           {
-            "type": "macro_call_expression",
+            "type": "macro_function_call_expression",
             "named": true
           },
           {
@@ -9471,10 +10441,6 @@
     "named": false
   },
   {
-    "type": "->",
-    "named": false
-  },
-  {
     "type": ".",
     "named": false
   },
@@ -9556,7 +10522,8 @@
   },
   {
     "type": "block_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "bool",
@@ -9607,10 +10574,6 @@
     "named": false
   },
   {
-    "type": "entry",
-    "named": false
-  },
-  {
     "type": "enum",
     "named": false
   },
@@ -9635,6 +10598,10 @@
     "named": true
   },
   {
+    "type": "for",
+    "named": false
+  },
+  {
     "type": "forall",
     "named": false
   },
@@ -9645,6 +10612,10 @@
   {
     "type": "fun",
     "named": false
+  },
+  {
+    "type": "function_behavior_modifier",
+    "named": true
   },
   {
     "type": "function_identifier",
@@ -9675,6 +10646,10 @@
     "named": false
   },
   {
+    "type": "inline",
+    "named": false
+  },
+  {
     "type": "internal",
     "named": false
   },
@@ -9692,7 +10667,8 @@
   },
   {
     "type": "line_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "local",
@@ -9732,7 +10708,8 @@
   },
   {
     "type": "newline",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "package",
@@ -9805,10 +10782,6 @@
   {
     "type": "true",
     "named": false
-  },
-  {
-    "type": "type_identifier",
-    "named": true
   },
   {
     "type": "type_parameter_identifier",

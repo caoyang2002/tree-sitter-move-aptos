@@ -1,22 +1,8 @@
 # Tree-sitter-move-aptos
 
-测试
-
-```bash
-./run_test.sh ./test  
-# tree-sitter parse ./test/sources/example.move
-```
-
-ui
-
-```bash
-tree-sitter build --wasm
-tree-sitter  playground
-```
-
 #  Tree-sitter 使用教程
 
-项目地址: 
+项目地址:
 - docs: https://tree-sitter.github.io/tree-sitter
 - repo: https://github.com/tree-sitter/tree-sitter
 
@@ -32,6 +18,8 @@ tree-sitter  playground
 
 首先，你需要安装 Tree-sitter。你可以通过以下命令安装：
 
+编译安装
+
 ```bash
 git clone https://github.com/tree-sitter/tree-sitter.git
 cd tree-sitter
@@ -39,74 +27,203 @@ make
 sudo make install
 ```
 
-## 使用示例
-
-以下是一个简单的使用示例，展示如何使用 Tree-sitter 解析一个简单的 C 语言文件：
-
-```c
-#include <stdio.h>
-
-int main() {
-    printf("Hello, World!\n");
-    return 0;
-}
-```
-
-
-你可以使用以下命令来解析这个文件：
+Mac 包管理器安装
 
 ```bash
-tree-sitter parse example.c
+brew install tree-sitter
+```
+
+## 测试
+
+### 测试示例代码
+
+```bash
+./run_test.sh ./test
+# tree-sitter parse ./test/sources/example.move
+```
+
+### 使用 playground
+
+```bash
+tree-sitter build --wasm # 先编译出一个 wasm，需要使用容器，比如 docker / podman 或者使用 Emscripten
+```
+
+如果出现 `You must have either emcc, docker, or podman on your PATH to run this command` 则表示您的系统PATH中必须有以下三种工具之一：
+
+- emcc - Emscripten 编译器，直接将 C/C++ 编译为 WebAssembly
+- docker - Docker 容器引擎
+- podman - Podman 容器引擎
+
+以 Emscripten 为例（推荐，最直接）
+
+```bash
+# 克隆emsdk仓库
+git clone https://github.com/emscripten-core/emsdk.git
+
+# 进入目录
+cd emsdk
+
+# 安装最新版本
+./emsdk install latest
+
+# 激活
+./emsdk activate latest
+
+# 设置环境变量（每次使用前需执行，或加入到您的shell配置文件中）
+source ./emsdk_env.sh  # 在macOS/Linux上
+# 或者
+.\emsdk_env.bat  # 在Windows上
+```
+
+```bash
+ tree-sitter build --wasm # 再次运行
+tree-sitter  playground
+```
+
+解析制定的文件
+
+```bash
+tree-sitter parse filename.move
 ```
 
 
-## 应用案例
 
-Tree-sitter 广泛应用于各种文本编辑器和 IDE 中，例如：
+# 贡献
 
-- Atom 编辑器：使用 Tree-sitter 进行语法高亮和代码折叠。
+生成
 
-- Neovim：使用 Tree-sitter 进行语法分析和代码导航。
-
-
-## 最佳实践
-
-- 增量解析：利用 Tree-sitter 的增量解析功能，可以在编辑器中实时更新语法树，提高性能。
-
-- 错误恢复：即使在存在语法错误的情况下，Tree-sitter 也能提供有用的结果，确保编辑器在遇到错误时仍能正常工作。
-
-## 典型生态项目
-
-Tree-sitter 的生态系统包含多个相关的项目，这些项目扩展了 Tree-sitter 的功能：
-
-- py-tree-sitter：Python 绑定，允许在 Python 项目中使用 Tree-sitter。
-- java-tree-sitter：Java 绑定，允许在 Java 项目中使用 Tree-sitter
-- tree-sitter-c：C 语言的语法定义，用于解析 C 代码。
-- tree-sitter-cpp：C++ 语言的语法定义，用于解析 C++ 代码。
-
-这些项目共同构成了一个强大的生态系统，支持多种编程语言和平台。
-
-原文链接：https://blog.csdn.net/gitblog_01056/article/details/141042501
-
----
+```bash
+tree-sitter generate
+```
 
 
 
-# tree-sitter 自定义语法参考
 
-https://blog.zeromake.com/pages/tree-sitter-syntax/
 
-## 前言
+# 语法解析器基本函数解释
 
-最近发现很多终端编辑器 (helix) 都在使用 `tree-sitter` 做语法高亮和代码提示功能，去看了一下感觉语法比起之前的 `bison`, `antlr4` 简单太多了，而且使用 js 来描述可以做出比较复杂的逻辑，这里做一个简单的创建解析器入门，具体的使用可以参考官网文档。
+在这个Move语言语法定义文件中，`seq`、`repeat`、`choice`、`optional`和`field`是定义语法规则的基本函数。
+
+## 1. `seq` (序列)
+
+- **含义**：按顺序匹配多个子规则，全部匹配成功才算成功
+
+- **类比**：相当于正则表达式中的连接操作
+
+- 例子：
+
+  ```javascript
+  seq("module", field("name", $._module_identifier), field("module_body", $.module_body))
+  ```
+
+  这个规则表示必须依次匹配"module"关键字、模块标识符、模块主体
+
+## 2. `repeat` (重复)
+
+- **含义**：匹配零次或多次指定规则
+
+- **类比**：相当于正则表达式中的`*`
+
+- 例子
+
+  ：
+
+  ```javascript
+  repeat($.use_declaration)
+  ```
+
+  这个规则表示可以匹配零个或多个use声明
+
+## 3. `choice` (选择)
+
+- **含义**：从多个规则中选择一个匹配，任一成功即可
+
+- **类比**：相当于正则表达式中的 `|`
+
+- 例子：
+
+  ```javascript
+  choice($.module_definition, $.script_definition, $.address_definition)
+  ```
+
+  这个规则表示可以匹配模块定义、脚本定义或地址定义中的任一种
+
+## 4. `optional` (可选)
+
+- **含义**：规则可选，匹配零次或一次
+
+- **类比**：相当于正则表达式中的`?`
+
+- 例子
+
+  ：
+
+  ```javascript
+  optional(field("type_parameters", $.type_parameters))
+  ```
+
+  这个规则表示类型参数是可选的，可以存在也可以不存在
+
+## 5. `field` (字段)
+
+- **含义**：为匹配结果的特定部分命名，便于在生成的语法树中引用
+
+- **作用**：标记语法树节点，不改变匹配行为
+
+- 例子
+
+  ：
+
+  ```javascript
+  field("name", $._function_identifier)
+  ```
+
+  这个规则表示将匹配到的函数标识符标记为"name"字段
+
+## 完整示例分析
+
+以if表达式的定义为例：
+
+```javascript
+if_expression: ($) =>
+  prec.right(
+    seq(
+      "if",
+      "(",
+      field("eb", $._expression),
+      ")",
+      field("et", $._expression),
+      optional(seq("else", field("ef", $._expression))),
+    ),
+  ),
+```
+
+这个规则解读为：
+
+1. 首先匹配`if`关键字
+2. 然后匹配左括号`(`
+3. 匹配一个表达式，并标记为`eb`(条件表达式)
+4. 匹配右括号`)`
+5. 匹配一个表达式，并标记为`et`(then分支)
+6. 可选地匹配`else`关键字和表达式，如存在则标记表达式为`ef`(else分支)
+
+这些基本函数的组合使得复杂的语法规则能够被清晰地定义和解析。
+
+
+
+
+
+
+
+# 语法解析器开发
+
+> [查看原文](https://blog.zeromake.com/pages/tree-sitter-syntax/)
 
 ## 一、环境准备
 
 ### 安装 tree-sitter-cil
 
-可以使用 node, rust 的包管理器去安装，如果都没有可以参考下面的下载预编译二进制放到 bin 目录里。
-
-repo: https://github.com/tree-sitter/tree-sitter/releases
+可以使用包管理器去安装，也可以在[仓库目录](https://github.com/tree-sitter/tree-sitter/releases)中下载二进制放到 bin 目录里。
 
 > Mac
 
@@ -147,11 +264,9 @@ tree-sitter 底层生成的代码是 c，最少需要一个类 gcc 编译器 (ms
 - windows: `mingw64`, `llvm-mingw`, `msvc-clang`
 - unix: `gcc`, `clang`
 
-**node 环境**
+### node 环境
 
-tree-sitter 的 grammar 用的 js 描述的，需要 node 来解析生成 tree-sitter 使用的 json。
-
-
+tree-sitter 的 grammar 是用的 js 描述的，需要 node 来解析生成 tree-sitter 使用的 json。
 
 ## 二、创建 tree-sitter-calc 解析器
 
@@ -442,7 +557,7 @@ module.exports = grammar({
 
 ## 参考
 
-- [tree-sitter 官方文档](ttps://tree-sitter.github.io)
+- [tree-sitter 官方文档](https://tree-sitter.github.io)
 - [创建解析器](https://tree-sitter.github.io/tree-sitter/creating-parsers)
 
 
@@ -454,20 +569,7 @@ module.exports = grammar({
 
 ## 入门
 
-### 依赖关系
 
-为了开发 Tree-Sitter 解析器，需要安装两个依赖项：
-
-- **Node.js**- Tree-sitter语法是用JavaScript编写的，Tree-sitter使用[Node.js](https://nodejs.org/)来解释JavaScript文件。它要求`node`命令位于[`PATH`](https://en.wikipedia.org/wiki/PATH_(variable))中的一个目录中。您需要Node.js 6.0或更高版本。
-- **C语言解析器**- Tree-sitter创建用C语言编写的解析器。为了使用`tree-sitter parse`或`tree-sitter test`命令运行和测试这些解析器，必须安装C编译器。Tree-sitter将尝试在每个平台的标准位置查找这些编译器。
-
-### 安装
-
-要创建Tree-Sitter解析器，需要使用 [`Tree-Sitter`CLI](https://github.com/tree-sitter/tree-sitter/tree/master/cli)。您可以通过几种不同的方式安装CLI：
-
-- 使用Rust包管理器cargo从源[`代码`](https://doc.rust-lang.org/cargo/getting-started/installation.html)构建`树型结构的`[Rust crate](https://crates.io/crates/tree-sitter-cli)。这适用于任何平台。更多信息请参见[贡献文档](https://tree-sitter.github.io/tree-sitter/contributing#developing-tree-sitter)。
-- 使用[`npm`](https://docs.npmjs.com/)（Node包管理器）安装`tree-sitter-`[code.js模块](https://www.npmjs.com/package/tree-sitter-cli)。这种方法速度很快，但仅适用于某些平台，因为它依赖于预构建的二进制文件。
-- 从[最新的GitHub版本](https://github.com/tree-sitter/tree-sitter/releases/latest)下载一个适合你的平台的二进制文件，并将其放在`PATH`上的一个目录中。
 
 ### 项目设置
 
@@ -1294,11 +1396,11 @@ Aside from improving error detection, keyword extraction also has performance be
 许多语言都有一些标记，它们的结构不可能或不方便用正则表达式来描述。以下是一些示例：
 
 - Python中[的Indent和dedent](https://en.wikipedia.org/wiki/Off-side_rule)标记
-  
+
 - Bash和Ruby中的[Heredocs](https://en.wikipedia.org/wiki/Here_document)
-  
+
 - Ruby中的[字符串百分比](https://docs.ruby-lang.org/en/2.5.0/doc/syntax/literals_rdoc.html#label-Percent+Strings)
-  
+
 
 Tree-sitter允许您使用*外部扫描器*处理这些类型的令牌。外部扫描器是一组C函数，语法作者可以手工编写这些函数，以便添加用于识别某些标记的自定义逻辑。
 

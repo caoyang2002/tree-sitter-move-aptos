@@ -3982,6 +3982,22 @@
     }
   },
   {
+    "type": "function_behavior_modifier",
+    "named": true,
+    "fields": {
+      "entry": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "entry",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "function_call_expression",
     "named": true,
     "fields": {
@@ -10669,6 +10685,10 @@
     "named": false
   },
   {
+    "type": "entry",
+    "named": false
+  },
+  {
     "type": "enum",
     "named": false
   },
@@ -10707,10 +10727,6 @@
   {
     "type": "fun",
     "named": false
-  },
-  {
-    "type": "function_behavior_modifier",
-    "named": true
   },
   {
     "type": "function_identifier",

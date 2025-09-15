@@ -635,8 +635,12 @@
       ]
     },
     "function_behavior_modifier": {
-      "type": "STRING",
-      "value": "entry"
+      "type": "FIELD",
+      "name": "entry",
+      "content": {
+        "type": "STRING",
+        "value": "entry"
+      }
     },
     "function_modifiers": {
       "type": "CHOICE",

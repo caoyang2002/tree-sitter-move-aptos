@@ -266,7 +266,7 @@ module.exports = grammar({
     implementation_modifier: ($) => choice("native", "inline"),
 
     // 函数行为修饰符
-    function_behavior_modifier: ($) => "entry",
+    function_behavior_modifier: ($) => field("entry", "entry"),
 
     // 2. 组合修饰符用于不同场景
     // 函数修饰符组合
@@ -536,6 +536,8 @@ module.exports = grammar({
     function_definition: ($) =>
       // public fun name<T>(){}
       // public(friend)
+      // enrty public(friend) fun name<T>(){}
+      // public entry fun foo() {}
       // 函数签名 函数体
       seq($._function_signature, field("body函数体", $.block)),
     // 函数签名

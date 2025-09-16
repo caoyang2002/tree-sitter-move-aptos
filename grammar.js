@@ -539,7 +539,7 @@ module.exports = grammar({
       // enrty public(friend) fun name<T>(){}
       // public entry fun foo() {}
       // 函数签名 函数体
-      seq($._function_signature, field("body函数体", $.block)),
+      seq($._function_signature, field("body", $.block)),
     // 函数签名
     _function_signature: ($) =>
       seq(
@@ -550,13 +550,13 @@ module.exports = grammar({
         // 函数名
         field("name", $._function_identifier),
         // 函数类型
-        optional(field("type_parameters类型参数", $.type_parameters)),
+        optional(field("type_parameters", $.type_parameters)),
         // 参数
-        field("parameters参数", $.function_parameters),
+        field("parameters", $.function_parameters),
         // 返回类型
-        optional(field("return_type返回类型", $.ret_type)),
+        optional(field("return_type", $.ret_type)),
         // 访问修饰符
-        optional(field("specifier访问修饰", $.specifier)),
+        optional(field("specifier", $.specifier)),
       ),
     // 函数参数
     function_parameters: ($) =>
